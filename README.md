@@ -1,11 +1,11 @@
-#  Handwritten Digit Recognition — MNIST
+# Handwritten Digit Recognition — MNIST
 
 > **Neural Networks Course Project**  
 > Multilayer Perceptron (MLP) trained on the MNIST dataset using PyTorch.
 
 ---
 
-##  Problem Description
+## Problem Description
 
 This project solves the classic **handwritten digit recognition** problem using the MNIST dataset. Given a 28×28 grayscale image of a handwritten digit (0–9), the model predicts which digit it is — a 10-class classification task.
 
@@ -16,7 +16,7 @@ A **Multilayer Perceptron (MLP)** is implemented from scratch using PyTorch, wit
 ## Dataset
 
 - **Name:** MNIST (Modified National Institute of Standards and Technology)
-- **Link:** [https://www.kaggle.com/datasets/hojjatk/mnist-dataset]*(auto-downloaded via `torchvision.datasets.MNIST`)*
+- **Link:** [https://www.kaggle.com/datasets/hojjatk/mnist-dataset](https://www.kaggle.com/datasets/hojjatk/mnist-dataset) *(auto-downloaded via `torchvision.datasets.MNIST`)*
 - **Size:** 70,000 grayscale images (28×28 pixels), 10 classes (digits 0–9)
 - **Split:**
 
@@ -33,7 +33,7 @@ A **Multilayer Perceptron (MLP)** is implemented from scratch using PyTorch, wit
 
 ---
 
-##  Model Architecture
+## Model Architecture
 
 ```
 Input  Layer  →  784 neurons   (flattened 28×28 image)
@@ -47,32 +47,43 @@ Output Layer  →  10 neurons    (digit classes 0–9, via CrossEntropyLoss)
 - **Optimizer:** Adam
 - **Dropout:** 0.3 on first two hidden layers — reduces overfitting (optional enhancement)
 - **Epochs:** 20 | **Batch size:** 64
-- **Total trainable parameters (baseline):** ~567,050
+- **Total trainable parameters:** 567,434
 
 ---
 
-##  Experiments & Results
+## Experiments & Results
 
-Four experiments were conducted by varying **activation function**, **learning rate**, and **number of neurons**:
+Three experiments were conducted by varying **activation function** and **learning rate**:
 
-| # | Activation | Learning Rate | Hidden Layers | Test Accuracy | Final Test Loss |
-|:-:|:----------:|:-------------:|:-------------:|:-------------:|:---------------:|
-| **Exp 1** — Baseline | ReLU | 0.001 | [512, 256, 128] | **97.85%** | 0.0712 |
-| **Exp 2** — Activation | Sigmoid | 0.001 | [512, 256, 128] | 96.41% | 0.1183 |
-| **Exp 3** — Learning Rate | ReLU | 0.01 | [512, 256, 128] | 97.12% | 0.0961 |
-| **Exp 4** — Neuron Count | ReLU | 0.001 | [128, 64, 32] | 96.78% | 0.1045 |
-
->  **Note:** Update the table above with your exact values after running the notebook.
+| # | Activation | Learning Rate | Hidden Layers | Test Accuracy | Final Test Loss | Best Val Acc |
+|:-:|:----------:|:-------------:|:-------------:|:-------------:|:---------------:|:------------:|
+| **Exp 1** — Baseline | ReLU | 0.001 | [512, 256, 128] | **98.27%** | 0.0769 | 98.06% |
+| **Exp 2** — Activation | Sigmoid | 0.001 | [512, 256, 128] | 98.04% | 0.0727 | 97.96% |
+| **Exp 3** — Learning Rate | ReLU | 0.01 | [512, 256, 128] | 95.00% | 0.2490 | 94.50% |
 
 ### Key Observations
 
-- **Exp 1 vs Exp 2 — Activation Function:** ReLU outperforms Sigmoid by ~1.4%. Sigmoid suffers from the vanishing gradient problem — gradients shrink as they propagate back, slowing and destabilizing learning. ReLU avoids this by passing gradients unchanged for positive activations.
+- **Exp 1 vs Exp 2 — Activation Function:** ReLU and Sigmoid achieved very close final accuracy (98.27% vs 98.04%), but their training behavior differed significantly. Sigmoid started much slower — Epoch 1 accuracy was only 84.82% vs ReLU's 90.82% — due to the vanishing gradient problem causing slower early convergence. ReLU converged faster and remained slightly more stable throughout.
 
-- **Exp 1 vs Exp 3 — Learning Rate:** A 10× higher learning rate (0.01) slightly reduced accuracy and increased final loss. The model converged faster early on but showed instability in later epochs, suggesting it overshoots the loss minimum.
-
-- **Exp 1 vs Exp 4 — Neuron Count:** The smaller network ([128, 64, 32]) performed well but fell short of the baseline by ~1%, confirming that the larger capacity genuinely contributes to accuracy and the baseline is not over-parameterized.
+- **Exp 1 vs Exp 3 — Learning Rate:** The high learning rate (0.01) caused a clear degradation in performance — accuracy dropped to 95.00% and loss stalled at ~0.37 from Epoch 5 onward without improving. This confirms that lr=0.01 is too large for Adam on this task: the optimizer overshoots the loss minimum and fails to fine-tune effectively.
 
 - **Best model:** Experiment 1 — ReLU, lr=0.001, hidden=[512, 256, 128]
+
+### Per-Class Performance (Best Model — Exp 1)
+
+| Digit | Precision | Recall | F1-Score | Support |
+|:-----:|:---------:|:------:|:--------:|:-------:|
+| 0 | 0.99 | 0.99 | 0.99 | 980 |
+| 1 | 0.99 | 0.99 | 0.99 | 1135 |
+| 2 | 0.98 | 0.98 | 0.98 | 1032 |
+| 3 | 0.98 | 0.98 | 0.98 | 1010 |
+| 4 | 0.99 | 0.98 | 0.98 | 982 |
+| 5 | 0.99 | 0.98 | 0.98 | 892 |
+| 6 | 0.98 | 0.99 | 0.98 | 958 |
+| 7 | 0.97 | 0.98 | 0.98 | 1028 |
+| 8 | 0.97 | 0.98 | 0.98 | 974 |
+| 9 | 0.98 | 0.97 | 0.98 | 1009 |
+| **Overall** | **0.98** | **0.98** | **0.98** | **10,000** |
 
 ---
 
@@ -82,25 +93,25 @@ Four experiments were conducted by varying **activation function**, **learning r
 ![Sample Images](results/sample_images.png)
 
 ### Training vs. Validation Loss
-![Loss Curves](results/training_validation_loss.png)
+![Loss Curves](results/loss_curves.png)
 
 ### Training vs. Validation Accuracy
-![Accuracy Curves](results/training_validation_accuracy.png)
+![Accuracy Curves](results/accuracy_curves.png)
 
 ### Validation Accuracy — All Experiments
-![Comparison](results/validation_accuracy_all_experiments.png)
+![Comparison](results/comparison_val_acc.png)
 
 ### Confusion Matrix (Best Model — Exp 1)
-![Confusion Matrix](results/confusion_matrix_exp1.png)
+![Confusion Matrix](results/confusion_matrix.png)
 
 ### Sample Predictions
 ![Predictions](results/sample_predictions.png)
 
->  Run the notebook to generate these plots, then move the `.png` files into a `results/` folder in the repo root.
+> Run the notebook to generate these plots, then move the `.png` files into a `results/` folder in the repo root.
 
 ---
 
-##  How to Run
+## How to Run
 
 ### Option 1: Google Colab (Recommended)
 
@@ -151,16 +162,18 @@ jupyter notebook MNIST_MLP_Project.ipynb
 - [x] Appropriate activation function (ReLU) and loss function (CrossEntropyLoss)
 - [x] Training with loss and accuracy monitoring per epoch
 - [x] Evaluation on held-out test set (accuracy + final loss reported)
-- [x] 4 experiments varying activation, learning rate, and neuron count
-- [x] Clear comparison table of all experiments
+- [x] 3 experiments varying activation function and learning rate
+- [x] Clear comparison table of all experiments with observations
 - [x] Training vs. Validation loss curves
 - [x] Training vs. Validation accuracy curves
 - [x] Confusion matrix on best model
+- [x] Per-class classification report (precision, recall, F1)
 - [x] Sample predictions visualization
 - [x] Optional: Dropout regularization (justified in notebook)
 
 ---
 
-##  Author
+## Author
 
-**[Ghanem Hassan Mohammed]**  
+**Ghanem Hassan Mohammed**  
+Neural Networks Course
