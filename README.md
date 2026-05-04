@@ -57,9 +57,9 @@ Three experiments were conducted by varying **activation function** and **learni
 
 | # | Activation | Learning Rate | Hidden Layers | Test Accuracy | Final Test Loss | Best Val Acc |
 |:-:|:----------:|:-------------:|:-------------:|:-------------:|:---------------:|:------------:|
-| **Exp 1** — Baseline | ReLU | 0.001 | [512, 256, 128] | **98.27%** | 0.0769 | 98.06% |
-| **Exp 2** — Activation | Sigmoid | 0.001 | [512, 256, 128] | 98.04% | 0.0727 | 97.96% |
-| **Exp 3** — Learning Rate | ReLU | 0.01 | [512, 256, 128] | 95.00% | 0.2490 | 94.50% |
+| **Exp 1** — Baseline | ReLU | 0.001 | [512, 256, 128] | **98.22%** | 0.0748 | 98.17% |
+| **Exp 2** — Activation | Sigmoid | 0.001 | [512, 256, 128] | 98.10% | 0.0746 | 97.96% |
+| **Exp 3** — Learning Rate | ReLU | 0.01 | [512, 256, 128] | 94.64% | 0.2492 | 94.50% |
 
 ### Key Observations
 
