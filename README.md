@@ -79,24 +79,24 @@ Four experiments were conducted by varying **activation function**, **learning r
 ##  Visualizations
 
 ### Sample Images
-![Sample Images](results/sample_images.png)
+![Sample Images](results/Sample Images.png)
 
 ### Training vs. Validation Loss
-![Loss Curves](results/loss_curves.png)
+![Loss Curves](results/Training vs. Validation Loss.png)
 
 ### Training vs. Validation Accuracy
-![Accuracy Curves](results/accuracy_curves.png)
+![Accuracy Curves](results/Training vs. Validation Accuracy.png)
 
 ### Validation Accuracy — All Experiments
-![Comparison](results/comparison_val_acc.png)
+![Comparison](results/Validation Accuracy — All Experiments.png)
 
 ### Confusion Matrix (Best Model — Exp 1)
-![Confusion Matrix](results/confusion_matrix.png)
+![Confusion Matrix](results/Confusion Matrix (Best Model — Exp 1).png)
 
 ### Sample Predictions
-![Predictions](results/sample_predictions.png)
+![Predictions](results/Sample Predictions.png)
 
-> 📌 Run the notebook to generate these plots, then move the `.png` files into a `results/` folder in the repo root.
+>  Run the notebook to generate these plots, then move the `.png` files into a `results/` folder in the repo root.
 
 ---
 
@@ -161,7 +161,6 @@ jupyter notebook MNIST_MLP_Project.ipynb
 
 ---
 
-## 👤 Author
+##  Author
 
-**[Your Name]**  
-Neural Networks Course — [Semester / Year]
+**[Ghanem Hassan Mohammed]**  
