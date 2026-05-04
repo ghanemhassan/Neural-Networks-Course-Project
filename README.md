@@ -76,25 +76,25 @@ Four experiments were conducted by varying **activation function**, **learning r
 
 ---
 
-##  Visualizations
+## Visualizations
 
 ### Sample Images
-![Sample Images](results/Sample Images.png)
+![Sample Images](results/sample_images.png)
 
 ### Training vs. Validation Loss
-![Loss Curves](results/Training vs. Validation Loss.png)
+![Loss Curves](results/training_validation_loss.png)
 
 ### Training vs. Validation Accuracy
-![Accuracy Curves](results/Training vs. Validation Accuracy.png)
+![Accuracy Curves](results/training_validation_accuracy.png)
 
 ### Validation Accuracy — All Experiments
-![Comparison](results/Validation Accuracy — All Experiments.png)
+![Comparison](results/validation_accuracy_all_experiments.png)
 
 ### Confusion Matrix (Best Model — Exp 1)
-![Confusion Matrix](results/Confusion Matrix (Best Model — Exp 1).png)
+![Confusion Matrix](results/confusion_matrix_exp1.png)
 
 ### Sample Predictions
-![Predictions](results/Sample Predictions.png)
+![Predictions](results/sample_predictions.png)
 
 >  Run the notebook to generate these plots, then move the `.png` files into a `results/` folder in the repo root.
 
