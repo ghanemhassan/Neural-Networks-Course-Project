@@ -13,7 +13,7 @@ A **Multilayer Perceptron (MLP)** is implemented from scratch using PyTorch, wit
 
 ---
 
-## 📦 Dataset
+## Dataset
 
 - **Name:** MNIST (Modified National Institute of Standards and Technology)
 - **Link:** [https://www.kaggle.com/datasets/hojjatk/mnist-dataset]*(auto-downloaded via `torchvision.datasets.MNIST`)*
