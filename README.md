@@ -102,7 +102,7 @@ Three experiments were conducted by varying **activation function** and **learni
 ![Comparison](results/comparison_val_acc.png)
 
 ### Confusion Matrix (Best Model — Exp 1)
-![Confusion Matrix](results/confusion_matrix.png)
+![Confusion Matrix](results/confusion_matrix_exp1.png)
 
 ### Sample Predictions
 ![Predictions](results/sample_predictions.png)
