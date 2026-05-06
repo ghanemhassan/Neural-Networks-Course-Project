@@ -93,13 +93,13 @@ Three experiments were conducted by varying **activation function** and **learni
 ![Sample Images](results/sample_images.png)
 
 ### Training vs. Validation Loss
-![Loss Curves](results/loss_curves.png)
+![Loss Curves](results/training_validation_loss.png)
 
 ### Training vs. Validation Accuracy
-![Accuracy Curves](results/accuracy_curves.png)
+![Accuracy Curves](results/training_validation_accuracy.png)
 
 ### Validation Accuracy — All Experiments
-![Comparison](results/comparison_val_acc.png)
+![Comparison](results/validation_accuracy_all_experiments.png)
 
 ### Confusion Matrix (Best Model — Exp 1)
 ![Confusion Matrix](results/confusion_matrix_exp1.png)
