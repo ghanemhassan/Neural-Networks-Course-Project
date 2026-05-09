@@ -125,8 +125,8 @@ Three experiments were conducted by varying **activation function** and **learni
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git https://github.com/ghanemhassan/Neural-Networks-Course-Project.git
+cd Neural-Networks-Course-Project
 
 # 2. Install dependencies
 pip install -r requirements.txt
